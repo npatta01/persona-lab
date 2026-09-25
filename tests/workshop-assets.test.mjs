@@ -32,10 +32,20 @@ test('guide uses prepared assets instead of asking for new portrait generation',
   assert.match(guide, /Work on the issue you just created above in this Codex task/);
   assert.doesNotMatch(guide, /^## (?:Step|Task) \d/m);
 });
-test('the root opens the connected paper mock', async () => {
+test('the landing page preserves workshop placeholders and links into the paper journey', async () => {
   const entry = await readFile(new URL('../index.html', import.meta.url), 'utf8');
   const paper = await readFile(new URL('mock/index.html', root), 'utf8');
-  assert.match(entry, /location\.replace\('workshop\/mock\/index\.html'/);
+  for (const placeholder of [
+    'BRAND_NAME',
+    'TAGLINE_GOES_HERE',
+    'CLIENT_PLACEHOLDER_01',
+    'TEAM_MEMBER_PLACEHOLDER_01',
+    'SUPPORTER_PLACEHOLDER_01',
+    'COMPANY_INFO_GOES_HERE',
+  ]) assert.match(entry, new RegExp(placeholder));
+  assert.match(entry, /Simulated-persona hypotheses, not validated human research/);
+  assert.match(entry, /workshop\/mock\/index\.html#workspace/);
+  assert.match(entry, /workshop\/mock\/index\.html#results/);
   for (const page of ['landing', 'workspace', 'results']) {
     assert.match(paper, new RegExp(`href="#${page}"`));
     assert.match(paper, new RegExp(`${page}\\.png`));
