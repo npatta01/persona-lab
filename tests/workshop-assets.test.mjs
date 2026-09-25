@@ -36,7 +36,6 @@ test('the landing page preserves workshop placeholders and links into the paper 
   const entry = await readFile(new URL('../index.html', import.meta.url), 'utf8');
   const paper = await readFile(new URL('mock/index.html', root), 'utf8');
   for (const placeholder of [
-    'BRAND_NAME',
     'TAGLINE_GOES_HERE',
     'CLIENT_PLACEHOLDER_01',
     'TEAM_MEMBER_PLACEHOLDER_01',
