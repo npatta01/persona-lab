@@ -43,7 +43,7 @@ test('the landing page uses supplied clients and team while preserving the paper
   for (const value of [
     'Acorn Commerce',
     'Pawprint',
-    'Slow and Steady',
+    'Slow &amp; Steady',
     'Tall Order',
     'Felix Pivot',
     'Codex McCompile',
