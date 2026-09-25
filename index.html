@@ -223,6 +223,36 @@
       .clients {
         grid-template-columns: repeat(4, 1fr);
       }
+      .client {
+        display: grid;
+        grid-template-rows: auto 152px 1fr;
+        gap: 16px;
+        min-height: 100%;
+        padding: 20px;
+        border: 1px solid var(--l);
+      }
+      .client-logo {
+        width: 100%;
+        height: 52px;
+        object-fit: contain;
+      }
+      .client-portrait {
+        width: 100%;
+        height: 152px;
+        object-fit: contain;
+      }
+      .client blockquote {
+        margin: 0;
+        color: var(--m);
+        font-family: var(--s);
+        font-size: 18px;
+        line-height: 1.28;
+      }
+      .disclosure {
+        max-width: 52ch;
+        margin: 0 0 30px;
+        color: var(--m);
+      }
       .supporters {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -279,6 +309,29 @@
             var(--l) 50%,
             transparent 51%
           );
+      }
+      .member img {
+        flex: 0 0 72px;
+        width: 72px;
+        height: 72px;
+        border: 1px solid var(--i);
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .member strong,
+      .member span {
+        display: block;
+      }
+      .member strong {
+        color: var(--i);
+        font-family: var(--s);
+        font-size: 20px;
+        font-weight: 500;
+        letter-spacing: -0.03em;
+      }
+      .member span {
+        margin-top: 2px;
+        letter-spacing: 0.04em;
       }
       footer {
         padding: 52px 0;
@@ -345,6 +398,12 @@
         }
         .clients {
           grid-template-columns: 1fr 1fr;
+        }
+        .client {
+          grid-template-rows: auto 132px 1fr;
+        }
+        .client-portrait {
+          height: 132px;
         }
         .member,
         .member + .member {
@@ -447,26 +506,46 @@
       </section>
       <section>
         <span class="label">Clients</span>
-        <h2>CLIENTS_PLACEHOLDER</h2>
+        <h2>Fictional wins, confidently told.</h2>
+        <p class="disclosure">Fictional customers. Wildly fictional results.</p>
         <div class="grid clients">
-          <div class="box">CLIENT_PLACEHOLDER_01</div>
-          <div class="box">CLIENT_PLACEHOLDER_02</div>
-          <div class="box">CLIENT_PLACEHOLDER_03</div>
-          <div class="box">CLIENT_PLACEHOLDER_04</div>
+          <article class="client">
+            <img class="client-logo" src="workshop/logos/acorn-commerce.svg" alt="Acorn Commerce" width="520" height="120" />
+            <img class="client-portrait" src="workshop/characters/bear.png" alt="Bear in a blue coat representing Acorn Commerce" width="1254" height="1254" />
+            <blockquote>“Thanks to Persona Lab, conversions increased by 7 million percent. We’ve stopped checking the math.”</blockquote>
+          </article>
+          <article class="client">
+            <img class="client-logo" src="workshop/logos/pawprint.svg" alt="Pawprint" width="520" height="120" />
+            <img class="client-portrait" src="workshop/characters/cat.png" alt="Cat in a purple jacket representing Pawprint" width="1254" height="1254" />
+            <blockquote>“We finally built a product our users—and their agents—love.”</blockquote>
+          </article>
+          <article class="client">
+            <img class="client-logo" src="workshop/logos/slow-steady.svg" alt="Slow and Steady" width="520" height="120" />
+            <img class="client-portrait" src="workshop/characters/turtle.png" alt="Turtle with an orange scarf representing Slow and Steady" width="1254" height="1254" />
+            <blockquote>“Persona Lab found our checkout friction in seconds. Our committee had been investigating since 2019.”</blockquote>
+          </article>
+          <article class="client">
+            <img class="client-logo" src="workshop/logos/tall-order.svg" alt="Tall Order" width="520" height="120" />
+            <img class="client-portrait" src="workshop/characters/giraffe.png" alt="Giraffe in a blue jacket representing Tall Order" width="1254" height="1254" />
+            <blockquote>“Our customers are asking us to take their money. Finance is overwhelmed.”</blockquote>
+          </article>
         </div>
       </section>
       <section id="team">
         <span class="label">Team</span>
-        <h2>TEAM_PLACEHOLDER</h2>
+        <h2>Small team. Big hypotheses.</h2>
         <div class="grid team">
           <div class="member">
-            <i class="avatar"></i>TEAM_MEMBER_PLACEHOLDER_01
+            <img src="workshop/characters/fox-ceo.png" alt="Felix Pivot, a female fox and Persona Lab CEO and cofounder" width="1254" height="1254" />
+            <div><strong>Felix Pivot</strong><span>CEO &amp; cofounder</span></div>
           </div>
           <div class="member">
-            <i class="avatar"></i>TEAM_MEMBER_PLACEHOLDER_02
+            <img src="workshop/characters/codex-cto.png" alt="Codex McCompile, a robot and Persona Lab CTO and cofounder" width="1254" height="1254" />
+            <div><strong>Codex McCompile</strong><span>CTO &amp; cofounder</span></div>
           </div>
           <div class="member">
-            <i class="avatar"></i>TEAM_MEMBER_PLACEHOLDER_03
+            <img src="workshop/characters/dog-product.png" alt="Barkley Clicks, a dog and Persona Lab Head of Product" width="1254" height="1254" />
+            <div><strong>Barkley Clicks</strong><span>Head of Product</span></div>
           </div>
         </div>
       </section>

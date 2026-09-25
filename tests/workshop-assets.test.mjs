@@ -32,16 +32,34 @@ test('guide uses prepared assets instead of asking for new portrait generation',
   assert.match(guide, /Work on the issue you just created above in this Codex task/);
   assert.doesNotMatch(guide, /^## (?:Step|Task) \d/m);
 });
-test('the landing page preserves workshop placeholders and links into the paper journey', async () => {
+test('the landing page uses supplied clients and team while preserving the paper journey', async () => {
   const entry = await readFile(new URL('../index.html', import.meta.url), 'utf8');
   const paper = await readFile(new URL('mock/index.html', root), 'utf8');
   for (const placeholder of [
     'TAGLINE_GOES_HERE',
-    'CLIENT_PLACEHOLDER_01',
-    'TEAM_MEMBER_PLACEHOLDER_01',
     'SUPPORTER_PLACEHOLDER_01',
     'COMPANY_INFO_GOES_HERE',
   ]) assert.match(entry, new RegExp(placeholder));
+  for (const value of [
+    'Acorn Commerce',
+    'Pawprint',
+    'Slow and Steady',
+    'Tall Order',
+    'Felix Pivot',
+    'Codex McCompile',
+    'Barkley Clicks',
+    'Fictional customers. Wildly fictional results.',
+  ]) assert.match(entry, new RegExp(value));
+  assert.doesNotMatch(entry, /CLIENT_PLACEHOLDER|TEAM_MEMBER_PLACEHOLDER/);
+  for (const asset of [
+    'workshop/logos/acorn-commerce.svg',
+    'workshop/logos/pawprint.svg',
+    'workshop/logos/slow-steady.svg',
+    'workshop/logos/tall-order.svg',
+    'workshop/characters/fox-ceo.png',
+    'workshop/characters/codex-cto.png',
+    'workshop/characters/dog-product.png',
+  ]) assert.match(entry, new RegExp(asset.replaceAll('.', '\\.')));
   assert.match(entry, /Simulated-persona hypotheses, not validated human research/);
   assert.match(entry, /workshop\/mock\/index\.html#workspace/);
   assert.match(entry, /workshop\/mock\/index\.html#results/);
