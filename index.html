@@ -3,13 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>PersonaLab</title>
+    <title>Persona Lab</title>
     <style>
       :root {
         --i: #0a214f;
         --b: #075df5;
         --l: #a4b4d0;
         --m: #4d5c77;
+        --mist: #eaf1ff;
+        --paper: #fff;
         --s: Georgia, serif;
         --u: system-ui, sans-serif;
       }
@@ -55,8 +57,15 @@
         letter-spacing: -0.045em;
       }
       .brand {
+        display: inline-flex;
+        align-items: center;
         font-size: 25px;
         font-weight: 700;
+      }
+      .brand img {
+        display: block;
+        width: 146px;
+        height: auto;
       }
       .nav,
       .actions {
@@ -90,7 +99,7 @@
         color: var(--b);
       }
       .ghost:hover {
-        background: #eaf1ff;
+        background: var(--mist);
         color: var(--i);
       }
       section {
@@ -210,7 +219,7 @@
       }
       .frame span {
         padding: 6px 10px;
-        background: #fff;
+        background: var(--paper);
         font: 22px var(--s);
       }
       .preview .btn {
@@ -372,7 +381,13 @@
   <body>
     <header>
       <div class="wrap">
-        <a class="brand" href="#top">PersonaLab</a>
+        <a class="brand" href="#top" aria-label="Persona Lab home"
+          ><img
+            src="workshop/logos/persona-lab.svg"
+            width="146"
+            height="36"
+            alt="Persona Lab"
+        /></a>
         <nav class="nav">
           <a href="#why">Why</a><a href="#product">Product</a
           ><a href="#team">Team</a
@@ -385,7 +400,7 @@
     <main id="top" class="wrap">
       <section class="hero">
         <div>
-          <h1>TAGLINE_GOES_HERE</h1>
+          <h1>Meet your next product decision.</h1>
           <p class="lede">
             Sketch a customer. Try a flow. Review possible friction.
           </p>
@@ -483,7 +498,13 @@
     <footer>
       <div class="wrap foot">
         <div>
-          <a class="brand" href="#top">PersonaLab</a>
+          <a class="brand" href="#top" aria-label="Persona Lab home"
+            ><img
+              src="workshop/logos/persona-lab.svg"
+              width="146"
+              height="36"
+              alt="Persona Lab"
+          /></a>
           <p>COMPANY_INFO_GOES_HERE</p>
         </div>
         <div class="right">
