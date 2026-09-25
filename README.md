@@ -15,6 +15,15 @@ Start a preview of this Persona Lab starter in my sandbox. Follow the
 repository's preview instructions and give me a browser-accessible URL.
 ```
 
+## Deployed site
+
+Pushes to `main` build and deploy the static site to GitHub Pages. Once GitHub
+Pages is enabled with **GitHub Actions** as its publishing source, the live
+paper mock is available at
+[npatta01.github.io/persona-lab](https://npatta01.github.io/persona-lab/),
+with the connected mock at
+[/workshop/mock/](https://npatta01.github.io/persona-lab/workshop/mock/).
+
 ## Prepared paper prototype and asset pack
 
 The preview opens the paper mock at `/`. You can also visit
