@@ -32,16 +32,30 @@ test('guide uses prepared assets instead of asking for new portrait generation',
   assert.match(guide, /Work on the issue you just created above in this Codex task/);
   assert.doesNotMatch(guide, /^## (?:Step|Task) \d/m);
 });
-test('the landing page preserves workshop placeholders and links into the paper journey', async () => {
+test('the landing page preserves its paper journey and replaces supporters and footer', async () => {
   const entry = await readFile(new URL('../index.html', import.meta.url), 'utf8');
   const paper = await readFile(new URL('mock/index.html', root), 'utf8');
   for (const placeholder of [
     'TAGLINE_GOES_HERE',
     'CLIENT_PLACEHOLDER_01',
     'TEAM_MEMBER_PLACEHOLDER_01',
-    'SUPPORTER_PLACEHOLDER_01',
-    'COMPANY_INFO_GOES_HERE',
   ]) assert.match(entry, new RegExp(placeholder));
+  for (const supporter of [
+    'Placeholder Partners',
+    'Venture Maybe',
+    'The Hypothesis Fund',
+  ]) assert.match(entry, new RegExp(supporter));
+  for (const logo of [
+    'placeholder-partners.svg',
+    'venture-maybe.svg',
+    'hypothesis-fund.svg',
+  ]) assert.match(entry, new RegExp(logo));
+  assert.doesNotMatch(entry, /src="public\/workshop\/logos\//);
+  assert.match(entry, /fictional supporter logo/);
+  assert.match(entry, /width="420"/);
+  assert.match(entry, /height="84"/);
+  assert.match(entry, /no endorsement or investment is implied/);
+  assert.match(entry, /Persona Lab · Somewhere on the Internet · Built with synthetic personas and suspiciously confident hypotheses\./);
   assert.match(entry, /Simulated-persona hypotheses, not validated human research/);
   assert.match(entry, /workshop\/mock\/index\.html#workspace/);
   assert.match(entry, /workshop\/mock\/index\.html#results/);

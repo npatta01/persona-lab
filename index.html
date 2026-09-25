@@ -238,6 +238,21 @@
         letter-spacing: 0.14em;
         text-align: center;
       }
+      .supporter {
+        min-height: 132px;
+        padding: 24px;
+      }
+      .supporter-logo {
+        display: block;
+        width: min(100%, 420px);
+        height: 84px;
+        object-fit: contain;
+      }
+      .supporter-note {
+        margin: 18px 0 0;
+        color: var(--m);
+        font-size: 14px;
+      }
       .team {
         grid-template-columns: repeat(3, 1fr);
         gap: 0;
@@ -472,11 +487,38 @@
       </section>
       <section>
         <span class="label">Supporters</span>
-        <h2>SUPPORTERS_PLACEHOLDER</h2>
+        <h2>Fictional supporters</h2>
+        <p class="supporter-note">
+          Workshop-made fictional companies; no endorsement or investment is implied.
+        </p>
         <div class="grid supporters">
-          <div class="box">SUPPORTER_PLACEHOLDER_01</div>
-          <div class="box">SUPPORTER_PLACEHOLDER_02</div>
-          <div class="box">SUPPORTER_PLACEHOLDER_03</div>
+          <div class="box supporter">
+            <img
+              class="supporter-logo"
+              src="workshop/logos/placeholder-partners.svg"
+              alt="Placeholder Partners fictional supporter logo"
+              width="420"
+              height="84"
+            />
+          </div>
+          <div class="box supporter">
+            <img
+              class="supporter-logo"
+              src="workshop/logos/venture-maybe.svg"
+              alt="Venture Maybe fictional supporter logo"
+              width="420"
+              height="84"
+            />
+          </div>
+          <div class="box supporter">
+            <img
+              class="supporter-logo"
+              src="workshop/logos/hypothesis-fund.svg"
+              alt="The Hypothesis Fund fictional supporter logo"
+              width="420"
+              height="84"
+            />
+          </div>
         </div>
       </section>
     </main>
@@ -484,7 +526,7 @@
       <div class="wrap foot">
         <div>
           <a class="brand" href="#top">PersonaLab</a>
-          <p>COMPANY_INFO_GOES_HERE</p>
+          <p>Persona Lab · Somewhere on the Internet · Built with synthetic personas and suspiciously confident hypotheses.</p>
         </div>
         <div class="right">
           <p>Simulated-persona hypotheses, not validated human research.</p>
