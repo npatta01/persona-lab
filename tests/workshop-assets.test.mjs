@@ -50,6 +50,7 @@ test('the landing page preserves its paper journey and replaces supporters and f
     'venture-maybe.svg',
     'hypothesis-fund.svg',
   ]) assert.match(entry, new RegExp(logo));
+  assert.doesNotMatch(entry, /src="public\/workshop\/logos\//);
   assert.match(entry, /fictional supporter logo/);
   assert.match(entry, /width="420"/);
   assert.match(entry, /height="84"/);
